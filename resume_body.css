@@ -1,0 +1,30 @@
+body {
+background-color: whitesmoke;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+    color: black;
+}
+.work_xp{
+    text-decoration: underline;
+}
+.education{
+    text-decoration: underline;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.last_h2{
+    text-decoration: underline;
+}
