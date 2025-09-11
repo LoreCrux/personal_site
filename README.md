@@ -20,7 +20,7 @@ A modern, responsive personal portfolio website built with React. This project s
 
 ## Deployment
 
-This project is configured for deployment on AWS. To deploy:
+This project is configured for deployment on GitHub Actions and pushed to AWS.
 
 ## 📄 License
 
