@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Typography, Button, Link as MuiLink, Container } from '@mui/material';
 import { motion } from 'framer-motion';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArticleIcon from '@mui/icons-material/Article';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Header = () => {
   return (
