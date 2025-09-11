@@ -36,7 +36,7 @@ const Footer = () => {
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }}>
               <IconButton 
                 component="a" 
-                href="https://www.linkedin.com/in/tyler-durham-3b327b1a2/" 
+                href="https://www.linkedin.com/in/tylerdurham208/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 color="inherit"

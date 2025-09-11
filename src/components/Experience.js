@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Typography, Paper, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { Box, Typography, Paper, List, ListItem, ListItemText, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
-import WorkIcon from '@mui/icons-material/Work';
 
 const experiences = [
   {
     id: 1,
     company: 'Covr Financial Technologies',
+    logo: '/logos/covr-logo.png',
     position: 'DevOps Engineer',
     location: 'Remote',
     duration: 'March 2025 - August 2025',
@@ -20,6 +20,7 @@ const experiences = [
   {
     id: 2,
     company: 'Covr Financial Technologies',
+    logo: '/logos/covr-logo.png',
     position: 'Software Development Engineer in Test',
     location: 'Remote',
     duration: 'May 2022 - March 2025',
@@ -33,6 +34,7 @@ const experiences = [
   {
     id: 3,
     company: 'Preco Electronics/Sensata Technologies',
+    logo: '/logos/sensata-logo.png',
     position: 'Lead Test Engineer',
     location: 'Boise, ID',
     duration: 'March 2020 - May 2022',
@@ -45,6 +47,7 @@ const experiences = [
   {
     id: 4,
     company: 'Cradlepoint',
+    logo: '/logos/cradlepoint-logo.png',
     position: 'Software Engineer in Test/QA Engineer (SaaS)',
     location: 'Boise, ID',
     duration: 'July 2015 - October 2019',
@@ -57,6 +60,7 @@ const experiences = [
   {
     id: 5,
     company: 'Beyondsoft (Hewlett-Packard)',
+    logo: '/logos/hp-logo.png',
     position: 'Test Engineer II',
     location: 'Boise, ID',
     duration: 'January 2014 - July 2015',
@@ -68,6 +72,7 @@ const experiences = [
   {
     id: 6,
     company: 'Adecco',
+    logo: '/logos/adecco-logo.png',
     position: 'Test Technician III',
     location: 'Boise, ID',
     duration: 'April 2013 - July 2013',
@@ -105,8 +110,20 @@ const Experience = () => {
               transition: 'all 0.3s ease-in-out'
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <WorkIcon color="primary" sx={{ mr: 1 }} />
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 2 }}>
+              <Avatar 
+                src={exp.logo} 
+                alt={`${exp.company} logo`}
+                sx={{ 
+                  width: 40, 
+                  height: 40,
+                  '& img': {
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: '100%',
+                  }
+                }}
+              />
               <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
                 {exp.company}
               </Typography>

@@ -109,7 +109,7 @@ const Header = () => {
 
             <Box sx={{ display: 'flex', gap: 2, mt: 4, alignItems: 'center' }}>
               <MuiLink 
-                href="https://linkedin.com/in/yourprofile" 
+                href="https://www.linkedin.com/in/tylerdurham208/" 
                 target="_blank" 
                 rel="noopener"
                 color="inherit"
