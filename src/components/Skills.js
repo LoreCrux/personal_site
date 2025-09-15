@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Paper, Grid, LinearProgress } from "@mui/material";
+import { Box, Typography, Paper, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import CodeIcon from "@mui/icons-material/Code";
 import StorageIcon from "@mui/icons-material/Storage";
@@ -7,10 +7,10 @@ import BuildIcon from "@mui/icons-material/Build";
 
 const skills = {
   programming: [
-    { name: "TypeScript", level: 85 },
-    { name: "JavaScript", level: 90 },
-    { name: "Python", level: 80 },
-    { name: "HTML/CSS", level: 85 },
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "HTML/CSS"
   ],
   tools: [
     "GitLab CI/CD",
@@ -38,30 +38,6 @@ const skills = {
     "Cloud Migration (Azure to AWS)",
   ],
 };
-
-const SkillProgress = ({ name, level }) => (
-  <Box sx={{ mb: 2 }}>
-    <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
-      <Typography variant="body1">{name}</Typography>
-      <Typography variant="body2" color="text.secondary">
-        {level}%
-      </Typography>
-    </Box>
-    <LinearProgress
-      variant="determinate"
-      value={level}
-      sx={{
-        height: 8,
-        borderRadius: 5,
-        backgroundColor: "#e0e0e0",
-        "& .MuiLinearProgress-bar": {
-          borderRadius: 5,
-          backgroundColor: "#1976d2",
-        },
-      }}
-    />
-  </Box>
-);
 
 const Skills = () => {
   return (
@@ -94,16 +70,36 @@ const Skills = () => {
               </Typography>
             </Box>
 
-            {skills.programming.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <SkillProgress name={skill.name} level={skill.level} />
-              </motion.div>
-            ))}
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
+              {skills.programming.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Box
+                    sx={{
+                      px: 2,
+                      py: 1,
+                      bgcolor: "primary.light",
+                      color: "primary.contrastText",
+                      borderRadius: 1,
+                      fontSize: "0.875rem",
+                      mb: 1,
+                      display: "inline-block",
+                      "&:hover": {
+                        bgcolor: "primary.dark",
+                      },
+                      transition: "all 0.2s ease-in-out",
+                    }}
+                  >
+                    {skill}
+                  </Box>
+                </motion.div>
+              ))}
+            </Box>
           </Paper>
         </Grid>
 

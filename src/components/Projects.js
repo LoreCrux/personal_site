@@ -1,33 +1,19 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper, Card, CardContent, CardMedia, Link, Container } from '@mui/material';
+import { Box, Typography, Grid, Paper, Card, CardContent, CardMedia, Link as MuiLink, Container, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link as RouterLink } from 'react-router-dom';
 
 const projects = [
   {
-    title: 'Project 1',
-    description: 'A brief description of your first project and what it does.',
-    image: 'https://via.placeholder.com/300x200',
-    github: 'https://github.com/LoreCrux/project1',
+    title: 'Personal Website',
+    description: 'This is a project used to spruce up my personal website about me and my skills.',
+    // image: 'https://via.placeholder.com/300x200',
+    github: 'https://github.com/LoreCrux/personal_site',
     demo: '#',
-    tags: ['React', 'Node.js', 'MongoDB']
-  },
-  {
-    title: 'Project 2',
-    description: 'A brief description of your second project and its key features.',
-    image: 'https://via.placeholder.com/300x200',
-    github: 'https://github.com/LoreCrux/project2',
-    demo: '#',
-    tags: ['Python', 'Django', 'PostgreSQL']
-  },
-  {
-    title: 'Project 3',
-    description: 'A brief description of your third project and technologies used.',
-    image: 'https://via.placeholder.com/300x200',
-    github: 'https://github.com/LoreCrux/project3',
-    demo: '#',
-    tags: ['JavaScript', 'Express', 'MongoDB']
+    tags: ['React', 'Node.js', 'GitHub Actions', 'AWS']
   }
 ];
 
@@ -37,12 +23,14 @@ const ProjectCard = ({ project }) => (
     transition={{ duration: 0.2 }}
   >
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={project.image}
-        alt={project.title}
-      />
+      {project.image && (
+        <CardMedia
+          component="img"
+          height="140"
+          image={project.image}
+          alt=""
+        />
+      )}
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h6" component="h3">
           {project.title}
@@ -67,7 +55,7 @@ const ProjectCard = ({ project }) => (
           ))}
         </Box>
         <Box sx={{ display: 'flex', gap: 2, mt: 'auto' }}>
-          <Link 
+          <MuiLink 
             href={project.github} 
             target="_blank" 
             rel="noopener noreferrer"
@@ -80,9 +68,9 @@ const ProjectCard = ({ project }) => (
             }}
           >
             <GitHubIcon sx={{ mr: 0.5, fontSize: '1.1rem' }} /> Code
-          </Link>
+          </MuiLink>
           {project.demo !== '#' && (
-            <Link 
+            <MuiLink 
               href={project.demo} 
               target="_blank" 
               rel="noopener noreferrer"
@@ -95,7 +83,7 @@ const ProjectCard = ({ project }) => (
               }}
             >
               <OpenInNewIcon sx={{ mr: 0.5, fontSize: '1.1rem' }} /> Live Demo
-            </Link>
+            </MuiLink>
           )}
         </Box>
       </CardContent>
@@ -105,15 +93,23 @@ const ProjectCard = ({ project }) => (
 
 const Projects = () => {
   return (
-    <Box component="section" id="projects" sx={{ py: 8 }}>
+    <Box component="section" id="projects" sx={{ minHeight: 'calc(100vh - 128px)', py: 6 }}>
       <Container maxWidth="lg">
+        <Button 
+          component={RouterLink} 
+          to="/" 
+          startIcon={<ArrowBackIcon />} 
+          sx={{ mb: 4 }}
+        >
+          Back to Home
+        </Button>
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Typography variant="h4" component="h2" gutterBottom align="center" sx={{ mb: 6 }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ mb: 6 }}>
             My Projects
           </Typography>
           
