@@ -49,7 +49,7 @@ const Footer = () => {
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }}>
               <IconButton 
                 component="a" 
-                href="https://github.com/tylerd01" 
+                href="https://github.com/LoreCrux" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 color="inherit"

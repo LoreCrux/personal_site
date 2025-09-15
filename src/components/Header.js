@@ -3,6 +3,7 @@ import { Box, Typography, Button, Link as MuiLink, Container } from '@mui/materi
 import { motion } from 'framer-motion';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArticleIcon from '@mui/icons-material/Article';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -66,7 +67,7 @@ const Header = () => {
               mb: 3,
               color: 'text.primary'
             }}>
-              DevOps Engineer
+              DevOps | Tech Strategy & Operations | Driving Scalable, Reliable Systems
             </Typography>
 
             <Typography variant="body1" sx={{ 
@@ -75,7 +76,35 @@ const Header = () => {
               lineHeight: 1.7,
               color: 'text.secondary'
             }}>
-              I build and optimize cloud infrastructure and CI/CD pipelines to deliver scalable and reliable applications.
+              Thanks for checking out my site! Check out my{" "}
+              <MuiLink 
+                component={RouterLink}
+                to="/about"
+                sx={{ 
+                  color: 'primary.main', 
+                  fontWeight: 500, 
+                  textDecoration: 'none',
+                  '&:hover': { textDecoration: 'underline' },
+                  cursor: 'pointer'
+                }}
+              >
+                About Me
+              </MuiLink>{" "}
+              page to learn more. Also check out my{" "}
+              <MuiLink 
+                component={RouterLink}
+                to="/projects"
+                sx={{ 
+                  color: 'primary.main', 
+                  fontWeight: 500, 
+                  textDecoration: 'none',
+                  '&:hover': { textDecoration: 'underline' },
+                  cursor: 'pointer'
+                }}
+              >
+                Projects
+              </MuiLink>{" "}
+              page to see some of the work I've done.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 4 }}>
