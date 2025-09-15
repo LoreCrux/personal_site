@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper, Card, CardContent, CardMedia, Link as MuiLink, Container, Button } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, CardMedia, Link as MuiLink, Container, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
