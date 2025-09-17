@@ -35,7 +35,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v5
         with:
-          name: Deploy
+          name: build
           path: ./build
       - name: Checkout repo
         uses: actions/checkout@v5
