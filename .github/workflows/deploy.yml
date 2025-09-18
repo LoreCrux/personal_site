@@ -40,8 +40,10 @@ jobs:
           path: ./build
 
       - name: Configure AWS
-        uses: ./.github/actions/aws-login
-
+        uses: ./.github/workflows/aws-login.yml
+        with:
+          aws-region: us-west-2
+      
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
@@ -68,7 +70,9 @@ jobs:
           path: ./build
 
       - name: Configure AWS
-        uses: ./.github/actions/aws-login
+        uses: ./.github/workflows/aws-login.yml
+        with:
+          aws-region: us-west-2
 
       - name: Deploy to S3
         run: |
