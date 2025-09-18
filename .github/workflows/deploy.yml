@@ -45,7 +45,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
   push-ecr:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Login to Amazon ECR
@@ -61,7 +61,7 @@ jobs:
           docker build -t ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }} .
           docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
   deploy-s3:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
         - name: Deploy to S3
