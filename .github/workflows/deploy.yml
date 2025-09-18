@@ -40,7 +40,7 @@ jobs:
           path: ./build
 
       - name: Configure AWS
-        uses: ./.github/workflows/aws-login.yml
+        uses: ./.github/workflows/aws-login
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -68,7 +68,7 @@ jobs:
           path: ./build
 
       - name: Configure AWS
-        uses: ./.github/workflows/aws-login.yml
+        uses: ./.github/workflows/aws-login
 
       - name: Deploy to S3
         run: |
