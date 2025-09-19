@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  build-react:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -26,62 +26,23 @@ jobs:
           path: ./build
           retention-days: 1
 
-  push-ecr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v5
-      
-      - name: Download build artifacts
-        uses: actions/download-artifact@v5
-        with:
-          name: build
-          path: ./build
-
-      - name: Configure AWS
-        uses: ./.github/workflows/aws-login.yml
-        with:
-          aws-region: us-west-2
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
-      
-      - name: Build and push image to Amazon ECR
-        env:
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: ${{ vars.REPOSITORY }}
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          docker build -t ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }} .
-          docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
+  deploy-ecr:
+    needs: build-react
+    uses: LoreCrux/personal_site/.github/workflows/deploy-ecr.yml@main
+    with:
+      aws-region: us-west-2
+      repository: ${{ vars.REPOSITORY }}
+    secrets:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   deploy-s3:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      
-      - name: Download build artifacts
-        uses: actions/download-artifact@v5
-        with:
-          name: build
-          path: ./build
-
-      - name: Configure AWS
-        uses: ./.github/workflows/aws-login.yml
-        with:
-          aws-region: us-west-2
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Deploy to S3
-        run: |
-          aws s3 sync ./build s3://${{ secrets.S3_BUCKET }} --delete
-
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+    needs: build-react
+    uses: LoreCrux/personal_site/.github/workflows/deploy-s3.yml@main
+    with:
+      aws-region: us-west-2
+    secrets:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      s3-bucket: ${{ secrets.S3_BUCKET }}
+      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
