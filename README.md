@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-A modern, responsive personal portfolio website built with React. This project showcases my professional experience, skills, education, and projects.  It isdeployed on AWS using GitHub Actions and AWS services.
+A modern, responsive personal portfolio website built with React. This project showcases my professional experience, skills, education, and projects.  It is deployed on AWS using GitHub Actions and AWS services.
 ## Features
 
 - **Responsive Design**: Looks great on all devices
