@@ -11,10 +11,11 @@ const experiences = [
     location: 'Remote',
     duration: 'March 2025 - August 2025',
     responsibilities: [
-      'Designed and implemented GitLab CI/CD pipelines for multiple repos to automate build/test/deploy workflows, drastically reducing deployment time',
-      'Introduced automatic semantic versioning in GitLab CI repos to track and tag versions of repositories',
-      'Implemented AWS CloudFormation templates to automate API Gateway, Lambda, and S3 deployments across multiple environments',
-      'Migrated workloads from Azure to AWS CloudFront, reducing cloud costs by thousands annually'
+      'Designed and implemented GitLab CI/CD pipelines for multiple repos to automate build/test/deploy workflows, which drastically reduced time to deploy code to given environments',
+      'Owned CI/CD pipeline failures in GitLab, led root cause analysis, and implemented prevention automation – reduced build failures by ~25-30%',
+      'Introduced automatic semantic versioning in GitLab CI repos to track and tag versions of repositories, enabling easier triage for versions of deploys and environments',
+      'Implemented AWS CloudFormation templates to automate API Gateway, Lambda, and S3 deployments across Sandbox, UAT, and Production, cutting environment setup time from hours to minutes',
+      'Migrated DNS from Azure to AWS CloudFront/CDN distributions, improving reliability and reduced annual cloud costs by thousands'
     ]
   },
   {
