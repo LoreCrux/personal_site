@@ -4,7 +4,22 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  id-token: write
+
 jobs:
+  run_job_with_aws:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ROLE_ARN }}:role/github_OIDC
+          role-session-name: github-actions-${{github.run_id}}
+          aws-region: us-west-2
+      - name: Additional steps
+        run: |
+          aws sts get-caller-identity
   build-react:
     runs-on: ubuntu-latest
     steps:
