@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  run_job_with_aws:
+  aws_oidc_auth:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
