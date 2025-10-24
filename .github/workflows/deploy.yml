@@ -6,6 +6,7 @@ on:
 
 permissions:
   id-token: write
+  contents: read
 
 jobs:
   run_job_with_aws:
@@ -20,6 +21,7 @@ jobs:
       - name: Additional steps
         run: |
           aws sts get-caller-identity
+
   build-react:
     runs-on: ubuntu-latest
     steps:
@@ -48,8 +50,7 @@ jobs:
       aws-region: us-west-2
       repository: ${{ vars.REPOSITORY }}
     secrets:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-role-arn: ${{ secrets.AWS_ROLE_ARN}}
 
   deploy-s3:
     needs: build-react
@@ -57,7 +58,6 @@ jobs:
     with:
       aws-region: us-west-2
     secrets:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-role-arn: ${{ secrets.AWS_ROLE_ARN}}
       s3-bucket: ${{ secrets.S3_BUCKET }}
       cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
