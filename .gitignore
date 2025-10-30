@@ -6,3 +6,4 @@ node_modules
 *.log
 *.tfplan
 .terraform.lock.hcl
+secret.tfvars
