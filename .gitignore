@@ -1,11 +1,14 @@
 node_modules
 .terraform/
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 .crash
 *.log
 *.tfplan
 .terraform.lock.hcl
 secret.tfvars
-tfplan
+*tfplan
 tfstate.tf
+override.tf
+terraform.tfvars
+*.auto.tfvars
