@@ -6,10 +6,6 @@ variable "s3_bucket" {
   type      = string
   sensitive = true
 }
-variable "domain_name" {
-  type      = string
-  sensitive = true
-}
 variable "route53_zone_id" {
   description = "Route 53 Zone ID"
   type        = string
