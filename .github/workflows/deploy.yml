@@ -24,7 +24,7 @@ jobs:
   
   terraform_build:
     needs: [aws_oidc_auth]
-    uses: ./.github/workflows/terraform.yml@main
+    uses: LoreCrux/personal_site/.github/workflows/terraform.yml@main
     with:
       aws-region: us-west-2
 
