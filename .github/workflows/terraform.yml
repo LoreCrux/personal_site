@@ -52,7 +52,7 @@ jobs:
         env:
           TF_VAR_acm_certificate_arn: ${{secrets.ACM_CERT_ARN}}
           TF_VAR_cloudfront_zone_id: ${{secrets.CLOUDFRONT_ZONE_ID}}
-          TF_VAR_aws_cloudfront_distribution: ${{secrets.CLOUDFRONT_DISTRIBUTION_ID}}
+          TF_VAR_aws_cloudfront_distribution: ${{secrets.CLOUDFRONT_DISTRIBUTION}}
           TF_VAR_ecr_repo_name: ${{secrets.ECR_REPO}}
           TF_VAR_kms_key_arn: ${{secrets.KMS_KEY_ARN}}
           TF_VAR_route53_zone_id: ${{secrets.ROUTE53_ZONE_ID}}
