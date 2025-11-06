@@ -11,3 +11,5 @@ tfstate.tf
 override.tf
 terraform.tfvars
 *.auto.tfvars
+dynamodb_lock.py
+scripts\dynamodb_lock.py
