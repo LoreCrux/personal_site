@@ -1,5 +1,6 @@
 name: deploy-terraform
-on:
+on: 
+  pull_request:
   workflow_call:
     inputs:
       aws-region:
@@ -50,17 +51,12 @@ jobs:
 
       - name: Terraform Plan
         env:
-          TF_VAR_acm_certificate_arn: ${{secrets.ACM_CERT_ARN}}
-          TF_VAR_cloudfront_zone_id: ${{secrets.CLOUDFRONT_ZONE_ID}}
-          TF_VAR_aws_cloudfront_distribution: ${{secrets.CLOUDFRONT_DISTRIBUTION}}
-          TF_VAR_ecr_repo_name: ${{secrets.ECR_REPO}}
-          TF_VAR_kms_key_arn: ${{secrets.KMS_KEY_ARN}}
-          TF_VAR_route53_zone_id: ${{secrets.ROUTE53_ZONE_ID}}
-          TF_VAR_s3_bucket: ${{secrets.S3_BUCKET}}
+          TF_acm_certificate_arn: ${{secrets.ACM_CERT_ARN}}
+          TF_cloudfront_zone_id: ${{secrets.CLOUDFRONT_ZONE_ID}}
+          TF_aws_cloudfront_distribution: ${{secrets.CLOUDFRONT_DISTRIBUTION}}
+          TF_ecr_repo_name: ${{secrets.ECR_REPO}}
+          TF_kms_key_arn: ${{secrets.KMS_KEY_ARN}}
+          TF_route53_zone_id: ${{secrets.ROUTE53_ZONE_ID}}
+          TF_s3_bucket: ${{secrets.S3_BUCKET}}
         id: plan
-        run: terraform plan
-
-      - name: Terraform Apply
-        id: apply
-        if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve
+        run: terraform plan -out=tfplan -input=false

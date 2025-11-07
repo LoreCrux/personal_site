@@ -24,7 +24,15 @@ jobs:
   
   terraform_build:
     needs: [aws_oidc_auth]
-    uses: LoreCrux/personal_site/.github/workflows/terraform.yml@main
+    uses: LoreCrux/personal_site/.github/workflows/terraform-plan.yml@main
+    with:
+      aws-region: us-west-2
+    secrets:
+      aws-role-arn: ${{secrets.AWS_ROLE_ARN}}
+  
+  terraform_apply:
+    needs: [aws_oidc_auth]
+    uses: LoreCrux/personal_site/.github/workflows/terraform-apply.yml@main
     with:
       aws-region: us-west-2
     secrets:
@@ -68,4 +76,4 @@ jobs:
     secrets:
       aws-role-arn: ${{ secrets.AWS_ROLE_ARN}}
       s3-bucket: ${{ secrets.S3_BUCKET }}
-      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}

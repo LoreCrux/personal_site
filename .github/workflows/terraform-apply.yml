@@ -1,0 +1,46 @@
+name: deploy-terraform
+on: 
+  pull_request:
+  workflow_call:
+    inputs:
+      aws-region:
+        type: string
+        required: true
+    secrets:
+      aws-role-arn:
+        required: true
+
+permissions:
+      id-token: write
+      contents: read    
+
+defaults:
+  run:
+    working-directory: ./infra/aws/    
+
+jobs:
+  terraform-apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+            role-to-assume: ${{secrets.aws-role-arn}}
+            aws-region: ${{inputs.aws-region}}
+
+      - name: Download Terraform CLI
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.13.4
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        
+      - name: Terraform Apply
+        id: apply
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve
