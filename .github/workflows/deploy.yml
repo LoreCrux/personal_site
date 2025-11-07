@@ -22,7 +22,7 @@ jobs:
         run: |
           aws sts get-caller-identity
   
-  terraform_build:
+  terraform_plan:
     needs: [aws_oidc_auth]
     uses: LoreCrux/personal_site/.github/workflows/terraform-plan.yml@main
     with:
@@ -31,7 +31,7 @@ jobs:
       aws-role-arn: ${{secrets.AWS_ROLE_ARN}}
   
   terraform_apply:
-    needs: [aws_oidc_auth]
+    needs: [aws_oidc_auth, terraform_plan]
     uses: LoreCrux/personal_site/.github/workflows/terraform-apply.yml@main
     with:
       aws-region: us-west-2
