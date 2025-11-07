@@ -89,4 +89,4 @@ jobs:
     secrets:
       aws-role-arn: ${{ secrets.AWS_ROLE_ARN}}
       s3-bucket: ${{ secrets.S3_BUCKET }}
-      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
+      cloudfront-distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}

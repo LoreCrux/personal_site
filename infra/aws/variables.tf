@@ -36,3 +36,7 @@ variable "ecr_repo_name" {
   type        = string
   sensitive   = true
 }
+variable "cloudfront_distribution_id" {
+  description = "CloudFront Distribution ID"
+  type        = string
+}
