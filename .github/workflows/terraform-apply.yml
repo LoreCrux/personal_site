@@ -9,6 +9,20 @@ on:
     secrets:
       aws-role-arn:
         required: true
+      acm_cert_arn:            
+        required: true 
+      cloudfront_zone_id:      
+        required: true 
+      cloudfront_distribution:
+        required: true 
+      ecr_repo:                 
+        required: true 
+      kms_key_arn: 
+        required: false 
+      route53_zone_id:
+        required: true 
+      s3_bucket:               
+        required: true 
 
 permissions:
       id-token: write
@@ -42,5 +56,13 @@ jobs:
         
       - name: Terraform Apply
         id: apply
+        env:
+          TF_VAR_acm_certificate_arn: ${{secrets.acm_cert_arn}}
+          TF_VAR_cloudfront_zone_id: ${{secrets.cloudfront_zone_id}}
+          TF_VAR_aws_cloudfront_distribution: ${{secrets.cloudfront_distribution}}
+          TF_VAR_ecr_repo_name: ${{secrets.ecr_repo}}
+          TF_VAR_kms_key_arn: ${{secrets.kms_key_arn}}
+          TF_VAR_route53_zone_id: ${{secrets.route53_zone_id}}
+          TF_VAR_s3_bucket: ${{secrets.s3_bucket}}
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
