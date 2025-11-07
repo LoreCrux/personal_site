@@ -1,4 +1,4 @@
-name: deploy-terraform
+name: terraform-plan
 on: 
   pull_request:
   workflow_call:
@@ -9,8 +9,20 @@ on:
     secrets:
       aws-role-arn:
         required: true
-  # workflow_dispatch:
-
+      acm_cert_arn:            
+        required: true 
+      cloudfront_zone_id:      
+        required: true 
+      cloudfront_distribution:
+        required: true 
+      ecr_repo:                 
+        required: true 
+      kms_key_arn: 
+        required: false 
+      route53_zone_id:
+        required: true 
+      s3_bucket:               
+        required: true 
 permissions:
       id-token: write
       contents: read    
@@ -20,37 +32,6 @@ defaults:
     working-directory: ./infra/aws/      
 
 jobs:
-  check-tf-vars:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Assert TF vars present
-        shell: bash
-        env:
-          TF_VAR_route53_zone_id:           ${{ secrets.ROUTE53_ZONE_ID }}
-          TF_VAR_cloudfront_zone_id:        ${{ secrets.CLOUDFRONT_ZONE_ID }}
-          TF_VAR_aws_cloudfront_distribution: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
-          TF_VAR_acm_certificate_arn:       ${{ secrets.ACM_CERT_ARN }}
-          TF_VAR_bucket_name:               ${{ secrets.BUCKET_NAME }}
-          TF_VAR_ecr_repo:                  ${{ secrets.ECR_REPO }}
-          TF_VAR_kms_key_arn:               ${{ secrets.KMS_KEY_ARN }}
-        run: |
-          for v in \
-            TF_VAR_route53_zone_id \
-            TF_VAR_cloudfront_zone_id \
-            TF_VAR_aws_cloudfront_distribution \
-            TF_VAR_acm_certificate_arn \
-            TF_VAR_bucket_name \
-            TF_VAR_ecr_repo \
-            TF_VAR_kms_key_arn
-          do
-            if [ -z "${!v}" ]; then
-              echo "❌ Missing $v"; exit 1
-            else
-              echo "::add-mask::${!v}"
-              echo "✅ $v present"
-            fi
-          done
-
   terraform-plan:
     runs-on: ubuntu-latest
     steps:
@@ -82,12 +63,12 @@ jobs:
 
       - name: Terraform Plan
         env:
-          TF_VAR_acm_certificate_arn: ${{secrets.ACM_CERT_ARN}}
-          TF_VAR_cloudfront_zone_id: ${{secrets.CLOUDFRONT_ZONE_ID}}
-          TF_VAR_aws_cloudfront_distribution: ${{secrets.CLOUDFRONT_DISTRIBUTION}}
-          TF_VAR_ecr_repo_name: ${{secrets.ECR_REPO}}
-          TF_VAR_kms_key_arn: ${{secrets.KMS_KEY_ARN}}
-          TF_VAR_route53_zone_id: ${{secrets.ROUTE53_ZONE_ID}}
-          TF_VAR_s3_bucket: ${{secrets.S3_BUCKET}}
+          TF_VAR_acm_certificate_arn: ${{secrets.acm_cert_arn}}
+          TF_VAR_cloudfront_zone_id: ${{secrets.cloudfront_zone_id}}
+          TF_VAR_aws_cloudfront_distribution: ${{secrets.cloudfront_distribution}}
+          TF_VAR_ecr_repo_name: ${{secrets.ecr_repo}}
+          TF_VAR_kms_key_arn: ${{secrets.kms_key_arn}}
+          TF_VAR_route53_zone_id: ${{secrets.route53_zone_id}}
+          TF_VAR_s3_bucket: ${{secrets.s3_bucket}}
         id: plan
         run: terraform plan -out=tfplan -input=false
