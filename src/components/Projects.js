@@ -15,6 +15,14 @@ const projects = [
     demo: '#',
     tags: ['React', 'Node.js', 'GitHub Actions', 'AWS']
   }
+  ,{
+    title: 'Nest Data Visulalizer',
+    description: 'Visualizes Google Nest thermostat data in Grafana.',
+    // image: 'https://via.placeholder.com/300x200',
+    github: 'https://github.com/LoreCrux/nest_data',
+    demo: '#',
+    tags: ['Python', 'PostgreSQL', 'Data Visualization', 'Grafana']
+  }
 ];
 
 const ProjectCard = ({ project }) => (
