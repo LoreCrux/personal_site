@@ -42,7 +42,7 @@ const skills = {
 const Skills = () => {
   return (
     <Box id="skills" sx={{ mb: 6 }}>
-      <Typography variant="h4" component="h2">
+      <Typography id="skills-heading" data-testid="skills-heading" variant="h4" component="h2">
         Skills & Technologies
       </Typography>
 
@@ -65,7 +65,7 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <CodeIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              <Typography id="skills-programming-heading" data-testid="skills-programming-heading" variant="h6" sx={{ fontWeight: "bold" }}>
                 Programming Languages
               </Typography>
             </Box>
@@ -121,7 +121,7 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <StorageIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              <Typography id="skills-cloud-heading" data-testid="skills-cloud-heading" variant="h6" sx={{ fontWeight: "bold" }}>
                 Cloud & DevOps
               </Typography>
             </Box>
@@ -177,7 +177,7 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <BuildIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              <Typography id="skills-tools-heading" data-testid="skills-tools-heading" variant="h6" sx={{ fontWeight: "bold" }}>
                 Tools & Technologies
               </Typography>
             </Box>

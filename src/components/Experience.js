@@ -86,7 +86,7 @@ const experiences = [
 const Experience = () => {
   return (
     <Box id="experience" sx={{ mb: 6 }}>
-      <Typography variant="h4" component="h2">
+      <Typography id="experience-heading" data-testid="experience-heading" variant="h4" component="h2">
         Work Experience
       </Typography>
       
@@ -125,21 +125,7 @@ const Experience = () => {
                   }
                 }}
               />
-              <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
-                {exp.company}
-              </Typography>
-            </Box>
-            
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', mb: 1 }}>
-              <Typography variant="subtitle1" color="text.secondary">
-                {exp.position}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {exp.duration}
-              </Typography>
-            </Box>
-            
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
+              <Typography id={`experience-company-${exp.id}`} data-testid={`experience-company-${exp.id}`} variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
               {exp.location}
             </Typography>
             

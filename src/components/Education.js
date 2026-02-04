@@ -32,7 +32,7 @@ const certifications = [
 const Education = () => {
   return (
     <Box id="education" sx={{ mb: 6 }}>
-      <Typography variant="h4" component="h2">
+      <Typography id="education-heading" data-testid="education-heading" variant="h4" component="h2">
         Education & Certifications
       </Typography>
       
@@ -42,7 +42,7 @@ const Education = () => {
           <Paper elevation={2} sx={{ p: 3, borderRadius: 2, height: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <SchoolIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              <Typography id="education-education-heading" data-testid="education-education-heading" variant="h6" sx={{ fontWeight: 'bold' }}>
                 Education
               </Typography>
             </Box>
@@ -78,7 +78,7 @@ const Education = () => {
           <Paper elevation={2} sx={{ p: 3, borderRadius: 2, height: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <WorkspacePremiumIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              <Typography id="education-certifications-heading" data-testid="education-certifications-heading" variant="h6" sx={{ fontWeight: 'bold' }}>
                 Certifications
               </Typography>
             </Box>

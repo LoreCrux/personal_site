@@ -11,6 +11,7 @@ const Footer = () => {
   return (
     <Box 
       component="footer" 
+      id="contact"
       sx={{ 
         py: 4, 
         bgcolor: 'primary.main',
