@@ -72,8 +72,8 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <CodeIcon color="primary" sx={{ mr: 1 }} />
-              <Typography id="skills-cloud-heading" data-testid="skills-cloud-heading" variant="h6" sx={{ fontWeight: "bold" }}>
-                Cloud & Infrastructure
+              <Typography id="skills-programming-heading" data-testid="skills-programming-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Programming Languages
               </Typography>
             </Box>
 
@@ -126,8 +126,8 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <StorageIcon color="primary" sx={{ mr: 1 }} />
-              <Typography id="skills-platform-heading" data-testid="skills-platform-heading" variant="h6" sx={{ fontWeight: "bold" }}>
-                Platform & CI/CD
+              <Typography id="skills-cloud-heading" data-testid="skills-cloud-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Cloud & DevOps
               </Typography>
             </Box>
 
@@ -180,8 +180,8 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <BuildIcon color="primary" sx={{ mr: 1 }} />
-              <Typography id="skills-automation-heading" data-testid="skills-automation-heading" variant="h6" sx={{ fontWeight: "bold" }}>
-                Automation & Reliability
+              <Typography id="skills-tools-heading" data-testid="skills-tools-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Tools & Technologies
               </Typography>
             </Box>
 

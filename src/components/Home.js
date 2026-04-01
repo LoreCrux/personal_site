@@ -33,13 +33,13 @@ const Home = () => {
     <>
       <Header />
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box id="experience" sx={{ scrollMarginTop: '80px' }}>
+        <Box sx={{ scrollMarginTop: '80px' }}>
           <Experience />
         </Box>
-        <Box id="education" sx={{ scrollMarginTop: '80px', mt: 8 }}>
+        <Box sx={{ scrollMarginTop: '80px', mt: 8 }}>
           <Education />
         </Box>
-        <Box id="skills" sx={{ scrollMarginTop: '80px', mt: 8 }}>
+        <Box sx={{ scrollMarginTop: '80px', mt: 8 }}>
           <Skills />
         </Box>
       </Container>

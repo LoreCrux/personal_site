@@ -15,6 +15,14 @@ const projects = [
     demo: '#',
     tags: ['React', 'Node.js', 'GitHub Actions', 'AWS']
   }
+  ,{
+    title: 'Nest Data Visulalizer',
+    description: 'Visualizes Google Nest thermostat data in Grafana.',
+    // image: 'https://via.placeholder.com/300x200',
+    github: 'https://github.com/LoreCrux/nest_data',
+    demo: '#',
+    tags: ['Python', 'PostgreSQL', 'Data Visualization', 'Grafana']
+  }
 ];
 
 const ProjectCard = ({ project }) => (
@@ -32,7 +40,7 @@ const ProjectCard = ({ project }) => (
         />
       )}
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h6" component="h3">
+        <Typography id={project.title.toLowerCase().replace(/\s+/g,'-') + '-title'} data-testid={project.title.toLowerCase().replace(/\s+/g,'-') + '-title'} gutterBottom variant="h6" component="h3">
           {project.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" paragraph>
@@ -109,7 +117,7 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Typography variant="h3" component="h1" gutterBottom sx={{ mb: 6 }}>
+          <Typography id="projects-heading" data-testid="projects-heading" variant="h3" component="h1" gutterBottom sx={{ mb: 6 }}>
             My Projects
           </Typography>
           

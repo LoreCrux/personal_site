@@ -17,7 +17,7 @@ const About = () => {
           Back to Home
         </Button>
         
-        <Typography variant="h3" component="h1" gutterBottom sx={{ mb: 4 }}>
+        <Typography id="about-heading" data-testid="about-heading" variant="h3" component="h1" gutterBottom sx={{ mb: 4 }}>
           About Me
         </Typography>
       

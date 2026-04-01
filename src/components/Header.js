@@ -43,7 +43,7 @@ const Header = () => {
         }}
       />
       
-      <Container maxWidth="lg" sx={{ py: 8, position: 'relative', zIndex: 1 }}>
+      <Container id="home" maxWidth="lg" sx={{ py: 8, position: 'relative', zIndex: 1 }}>
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6, alignItems: 'center' }}>
         <Box sx={{ flex: 1, maxWidth: { md: '60%' } }}>
           <motion.div
@@ -51,7 +51,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Typography variant="h3" component="h1" sx={{ 
+            <Typography id="hero-title" data-testid="hero-title" variant="h3" component="h1" sx={{ 
               fontWeight: 700, 
               mb: 2,
               background: 'linear-gradient(90deg, #1976d2 0%, #21cbf3 100%)',
@@ -62,7 +62,7 @@ const Header = () => {
               Hey, I'm Tyler
             </Typography>
             
-            <Typography variant="h4" component="h2" sx={{ 
+            <Typography id="hero-subtitle" data-testid="hero-subtitle" variant="h4" component="h2" sx={{ 
               fontWeight: 600, 
               mb: 3,
               color: 'text.primary'
@@ -144,6 +144,15 @@ const Header = () => {
               >
                 <LinkedInIcon sx={{ fontSize: 28 }} />
               </MuiLink>
+            </Box>
+
+            <Box component="nav" aria-label="Primary site navigation" sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 3 }}>
+              <MuiLink href="/#experience" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="Jump to Experience">Experience</MuiLink>
+              <MuiLink href="/#education" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="Jump to Education">Education</MuiLink>
+              <MuiLink href="/#skills" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="Jump to Skills">Skills</MuiLink>
+              <MuiLink href="/#contact" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="Jump to Contact">Contact</MuiLink>
+              <MuiLink component={RouterLink} to="/projects" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="Projects page">Projects</MuiLink>
+              <MuiLink component={RouterLink} to="/about" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }} aria-label="About page">About</MuiLink>
             </Box>
           </motion.div>
         </Box>

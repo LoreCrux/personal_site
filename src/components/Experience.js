@@ -124,7 +124,7 @@ const Experience = () => {
               {exp.location}
             </Typography>
 
-            <List dense disablePadding sx={{ listStyleType: 'disc', pl: 3 }}>
+            <List dense disablePadding>
               {exp.responsibilities.map((item, i) => (
                 <ListItem key={i} sx={{ display: 'list-item', py: 0.5, pl: 0 }}>
                   <ListItemText primary={<Typography variant="body2">{item}</Typography>} />
