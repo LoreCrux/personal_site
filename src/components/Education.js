@@ -9,7 +9,7 @@ const education = [
     id: 1,
     institution: 'Western Governors University',
     degree: 'B.S. Software Engineering',
-    duration: 'Graduated',
+    duration: 'Graduated Jul 2025',
     description: 'Focused on software development principles, algorithms, and system design.'
   },
   {
@@ -38,7 +38,7 @@ const Education = () => {
       
       <Grid container spacing={3} sx={{ mt: 1 }}>
         {/* Education Section */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper elevation={2} sx={{ p: 3, borderRadius: 2, height: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <SchoolIcon color="primary" sx={{ mr: 1 }} />
@@ -74,7 +74,7 @@ const Education = () => {
         </Grid>
         
         {/* Certifications Section */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper elevation={2} sx={{ p: 3, borderRadius: 2, height: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <WorkspacePremiumIcon color="primary" sx={{ mr: 1 }} />

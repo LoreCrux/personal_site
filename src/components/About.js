@@ -34,7 +34,7 @@ const About = () => {
         }}
       >
         <Grid container spacing={4}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}

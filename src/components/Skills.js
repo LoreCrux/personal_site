@@ -6,49 +6,56 @@ import StorageIcon from "@mui/icons-material/Storage";
 import BuildIcon from "@mui/icons-material/Build";
 
 const skills = {
-  programming: [
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "HTML/CSS"
-  ],
-  tools: [
-    "GitLab CI/CD",
-    "Playwright",
-    "REST APIs",
-    "Docker",
-    "Kubernetes",
-    "Visual Studio Code",
-    "Git",
-    "Linux",
-    "AWS",
-    "Azure",
-    "CloudFormation",
-    "API Gateway",
-    "Lambda",
-    "S3",
-    "CloudFront",
-  ],
   cloud: [
-    "AWS Services (EC2, S3, Lambda, CloudFront, API Gateway)",
-    "Infrastructure as Code (CloudFormation)",
-    "CI/CD Pipelines",
-    "Containerization (Docker, Kubernetes)",
-    "Serverless Architecture",
-    "Cloud Migration (Azure to AWS)",
+    "AWS (S3, CloudFront, API Gateway, Lambda, IAM, EC2, DynamoDB, CloudFormation)",
+    "Environment Provisioning",
+    "Multi-Environment Deployments",
+    "DNS Management",
+  ],
+  platform: [
+    "GitLab CI (Advanced Templates, Downstream Pipelines)",
+    "GitHub Actions",
+    "Azure DevOps",
+    "Release Automation",
+    "Semantic Versioning",
+    "Environment Orchestration",
+    "Modular Pipeline Design",
+    "Onboarding Automation",
+    "Multi-Tenant Deployment Patterns",
+    "Deployment Traceability",
+    "Rollback Strategies",
+  ],
+  automation: [
+    "Python",
+    "Bash",
+    "TypeScript",
+    "Playwright",
+    "Load Testing (Artillery)",
+    "Pipeline Sharding",
+    "UI Stability Engineering",
+    "Test Pyramid Strategy",
+    "Cross-browser Automation",
+    "SAML2 / OAuth 2.0 Validation",
+    "IAM Policy Management",
+    "PostgreSQL",
+    "SQL Server",
+    "MySQL",
+    "DynamoDB",
+    "Sentry",
+    "AWS CloudWatch",
   ],
 };
 
 const Skills = () => {
   return (
     <Box id="skills" sx={{ mb: 6 }}>
-      <Typography variant="h4" component="h2">
+      <Typography id="skills-heading" data-testid="skills-heading" variant="h4" component="h2">
         Skills & Technologies
       </Typography>
 
       <Grid container spacing={3} sx={{ mt: 1 }}>
-        {/* Programming Languages */}
-        <Grid item xs={12} md={4}>
+        {/* Cloud & Infrastructure */}
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper
             elevation={2}
             sx={{
@@ -65,13 +72,13 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <CodeIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                Programming Languages
+              <Typography id="skills-cloud-heading" data-testid="skills-cloud-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Cloud & Infrastructure
               </Typography>
             </Box>
 
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
-              {skills.programming.map((skill, index) => (
+              {skills.cloud.map((skill, index) => (
                 <motion.div
                   key={skill}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -89,9 +96,7 @@ const Skills = () => {
                       fontSize: "0.875rem",
                       mb: 1,
                       display: "inline-block",
-                      "&:hover": {
-                        bgcolor: "primary.dark",
-                      },
+                      "&:hover": { bgcolor: "primary.dark" },
                       transition: "all 0.2s ease-in-out",
                     }}
                   >
@@ -103,8 +108,8 @@ const Skills = () => {
           </Paper>
         </Grid>
 
-        {/* Cloud & DevOps */}
-        <Grid item xs={12} md={4}>
+        {/* Platform & CI/CD */}
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper
             elevation={2}
             sx={{
@@ -121,13 +126,13 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <StorageIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                Cloud & DevOps
+              <Typography id="skills-platform-heading" data-testid="skills-platform-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Platform & CI/CD
               </Typography>
             </Box>
 
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
-              {skills.cloud.map((item, index) => (
+              {skills.platform.map((item, index) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -145,9 +150,7 @@ const Skills = () => {
                       fontSize: "0.875rem",
                       mb: 1,
                       display: "inline-block",
-                      "&:hover": {
-                        bgcolor: "primary.dark",
-                      },
+                      "&:hover": { bgcolor: "primary.dark" },
                       transition: "all 0.2s ease-in-out",
                     }}
                   >
@@ -159,8 +162,8 @@ const Skills = () => {
           </Paper>
         </Grid>
 
-        {/* Tools & Technologies */}
-        <Grid item xs={12} md={4}>
+        {/* Automation & Reliability */}
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper
             elevation={2}
             sx={{
@@ -177,13 +180,13 @@ const Skills = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <BuildIcon color="primary" sx={{ mr: 1 }} />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                Tools & Technologies
+              <Typography id="skills-automation-heading" data-testid="skills-automation-heading" variant="h6" sx={{ fontWeight: "bold" }}>
+                Automation & Reliability
               </Typography>
             </Box>
 
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
-              {skills.tools.map((tool, index) => (
+              {skills.automation.map((tool, index) => (
                 <motion.div
                   key={tool}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -202,9 +205,7 @@ const Skills = () => {
                       fontSize: "0.875rem",
                       mb: 1,
                       display: "inline-block",
-                      "&:hover": {
-                        bgcolor: "action.hover",
-                      },
+                      "&:hover": { bgcolor: "action.hover" },
                       transition: "all 0.2s ease-in-out",
                     }}
                   >

@@ -8,14 +8,14 @@ const experiences = [
     company: 'Covr Financial Technologies',
     logo: '/logos/covr-logo.png',
     position: 'DevOps Engineer',
-    location: 'Remote',
-    duration: 'March 2025 - August 2025',
+    location: 'Boise, ID',
+    duration: 'Mar 2025 – Aug 2025',
     responsibilities: [
-      'Designed and implemented GitLab CI/CD pipelines for multiple repos to automate build/test/deploy workflows, which drastically reduced time to deploy code to given environments',
-      'Owned CI/CD pipeline failures in GitLab, led root cause analysis, and implemented prevention automation – reduced build failures by ~25-30%',
-      'Introduced automatic semantic versioning in GitLab CI repos to track and tag versions of repositories, enabling easier triage for versions of deploys and environments',
-      'Implemented AWS CloudFormation templates to automate API Gateway, Lambda, and S3 deployments across Sandbox, UAT, and Production, cutting environment setup time from hours to minutes',
-      'Migrated DNS from Azure to AWS CloudFront/CDN distributions, improving reliability and reduced annual cloud costs by thousands'
+      'Partnered with engineering leadership to migrate 5+ core repositories from Azure DevOps to GitLab, architecting modular CI/CD templates that achieved a 90% reduction in deployment times.',
+      'Automated the provisioning of multi-tenant AWS infrastructure (S3, CloudFront, API Gateway, Lambda) using CloudFormation, ensuring 100% environment parity across Dev, Staging, and Production.',
+      'Engineered automated semantic versioning and release tagging systems, increasing deployment traceability and establishing high-confidence rollback strategies.',
+      'Designed and implemented downstream pipelines for multi-service deployments, significantly reducing pipeline duplication and cutting developer onboarding time by ~40%.',
+      'Enhanced platform observability by configuring proactive monitoring for CI/CD pipelines via CloudWatch, reducing delivery interruptions and unplanned downtime.',
     ]
   },
   {
@@ -23,73 +23,54 @@ const experiences = [
     company: 'Covr Financial Technologies',
     logo: '/logos/covr-logo.png',
     position: 'Software Development Engineer in Test',
-    location: 'Remote',
-    duration: 'May 2022 - March 2025',
+    location: 'Boise, ID',
+    duration: 'May 2022 – Mar 2025',
     responsibilities: [
-      'Built and maintained a TypeScript + Playwright automation framework for UI and API testing, increasing test coverage by 90%',
-      'Authored over 400 automated tests, tripling regression coverage and reducing test cycle time',
-      'Mentored manual QA engineers in automation and DevOps practices',
-      'Created GitLab CI/CD integration pipeline with CRON jobs for nightly test runs and reporting'
+      'Built a test automation framework from scratch using Playwright, reducing manual test validation by ~90% by shifting execution to a nightly CI pipeline.',
+      'Introduced pipeline sharding to parallelize test execution, cutting suite runtime from 25–30 minutes to 5–10 minutes, reducing developer wait time and accelerating release cycles.',
+      'Implemented smoke test suite running automatically against production post-deploy, eliminating ~10–15 minutes of manual on-call validation per deployment.',
+      'Implemented auto-scaling on test infrastructure services to handle increased parallel load from sharding, maintaining pipeline stability under high execution demand.',
+      'Designed automated quality gates in CI/CD pipelines, preventing regressions from reaching production across rapid release cycles.',
+      'Refactored inheritance-heavy automation framework into a composition-based modular design, significantly improving test stability, maintainability, and execution predictability.',
+      'Supported AWS infrastructure provisioning and migration using CloudFormation and automation tooling.',
+      'Mentored development teams in automation ownership and CI integration, reducing centralized QA dependency and increasing delivery velocity.',
     ]
   },
   {
     id: 3,
-    company: 'Preco Electronics/Sensata Technologies',
+    company: 'Sensata Technologies',
     logo: '/logos/sensata-logo.png',
-    position: 'Lead Test Engineer',
+    position: 'Test Engineer',
     location: 'Boise, ID',
-    duration: 'March 2020 - May 2022',
+    duration: 'Mar 2020 – May 2022',
     responsibilities: [
-      'Oversaw testing efforts for embedded radar sensor systems',
-      'Organized testing locations with local and international businesses for global testing coverage',
-      'Developed test plans based on EU standards and requirements'
+      'Led testing and compliance validation for embedded radar sensor systems meeting EU regulatory standards.',
+      'Owned test strategy, execution, and defect triage for regulated systems with cross-border team coordination.',
+      'Utilized specialized radar test equipment and vendor tooling to validate sensor accuracy for EU compliance certification.',
     ]
   },
   {
     id: 4,
     company: 'Cradlepoint',
     logo: '/logos/cradlepoint-logo.png',
-    position: 'Software Engineer in Test/QA Engineer (SaaS)',
+    position: 'Software Engineer in Test',
     location: 'Boise, ID',
-    duration: 'July 2015 - October 2019',
+    duration: 'Jul 2015 – Oct 2019',
     responsibilities: [
-      'Automated UI/API system integration tests and embedded them into deployment pipelines',
-      'Supported customer escalations and automated regression workflows',
-      'Improved release cadence and expanded test coverage'
+      'Progressed from manual QA into SDET, helping define automation strategy and CI integration across engineering teams.',
+      'Designed and maintained Python-based automated test suites for web and API systems integrated into CI/CD pipelines.',
+      'Investigated Kubernetes pod failures impacting automated test execution, identifying infrastructure and application-level issues to improve reliability.',
     ]
   },
-  {
-    id: 5,
-    company: 'Beyondsoft (Hewlett-Packard)',
-    logo: '/logos/hp-logo.png',
-    position: 'Test Engineer II',
-    location: 'Boise, ID',
-    duration: 'January 2014 - July 2015',
-    responsibilities: [
-      'Performed testing on multi-vendor software and hardware technologies',
-      'Assisted engineers with organizing and creating test plans'
-    ]
-  },
-  {
-    id: 6,
-    company: 'Adecco',
-    logo: '/logos/adecco-logo.png',
-    position: 'Test Technician III',
-    location: 'Boise, ID',
-    duration: 'April 2013 - July 2013',
-    responsibilities: [
-      'Read, modified, compiled, and deployed code for automation execution'
-    ]
-  }
 ];
 
 const Experience = () => {
   return (
     <Box id="experience" sx={{ mb: 6 }}>
-      <Typography variant="h4" component="h2">
+      <Typography id="experience-heading" data-testid="experience-heading" variant="h4" component="h2">
         Work Experience
       </Typography>
-      
+
       {experiences.map((exp, index) => (
         <motion.div
           key={exp.id}
@@ -97,11 +78,11 @@ const Experience = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
         >
-          <Paper 
-            elevation={2} 
-            sx={{ 
-              p: 3, 
-              mb: 3, 
+          <Paper
+            elevation={2}
+            sx={{
+              p: 3,
+              mb: 3,
               borderRadius: 2,
               '&:hover': {
                 boxShadow: 4,
@@ -112,11 +93,11 @@ const Experience = () => {
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 2 }}>
-              <Avatar 
-                src={exp.logo} 
+              <Avatar
+                src={exp.logo}
                 alt={`${exp.company} logo`}
-                sx={{ 
-                  width: 40, 
+                sx={{
+                  width: 40,
                   height: 40,
                   '& img': {
                     objectFit: 'contain',
@@ -125,11 +106,11 @@ const Experience = () => {
                   }
                 }}
               />
-              <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
+              <Typography id={`experience-company-${exp.id}`} data-testid={`experience-company-${exp.id}`} variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
                 {exp.company}
               </Typography>
             </Box>
-            
+
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', mb: 1 }}>
               <Typography variant="subtitle1" color="text.secondary">
                 {exp.position}
@@ -138,21 +119,15 @@ const Experience = () => {
                 {exp.duration}
               </Typography>
             </Box>
-            
+
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
               {exp.location}
             </Typography>
-            
-            <List dense disablePadding>
+
+            <List dense disablePadding sx={{ listStyleType: 'disc', pl: 3 }}>
               {exp.responsibilities.map((item, i) => (
-                <ListItem key={i} sx={{ py: 0.5, pl: 2 }}>
-                  <ListItemText 
-                    primary={
-                      <Typography variant="body2" component="span">
-                        • {item}
-                      </Typography>
-                    } 
-                  />
+                <ListItem key={i} sx={{ display: 'list-item', py: 0.5, pl: 0 }}>
+                  <ListItemText primary={<Typography variant="body2">{item}</Typography>} />
                 </ListItem>
               ))}
             </List>

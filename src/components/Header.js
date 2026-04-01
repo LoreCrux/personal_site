@@ -67,7 +67,7 @@ const Header = () => {
               mb: 3,
               color: 'text.primary'
             }}>
-              DevOps | Tech Strategy & Operations | Driving Scalable, Reliable Systems
+              Platform Engineer | DevOps | CI/CD & Infrastructure Automation
             </Typography>
 
             <Typography variant="body1" sx={{ 
