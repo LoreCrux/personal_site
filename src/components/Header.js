@@ -125,7 +125,7 @@ const Header = () => {
                 variant="outlined" 
                 color="primary"
                 component="a"
-                href="https://cloudlearner.hashnode.dev/"
+                href="https://substack.com/@tylerd208"
                 target="_blank"
                 rel="noopener noreferrer"
                 startIcon={<ArticleIcon />}
